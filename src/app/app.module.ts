@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { Guard } from './guard/guard';
@@ -17,7 +18,15 @@ import { AddMovieComponent } from './movie/add-movie/add-movie.component';
 import { MovieItemComponent } from './movie/movie-item/movie-item.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { UserLoginComponent } from './user/user-login/user-login.component';
+import { UserRegisterComponent } from './user/user-register/user-register.component';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { NavbarComponent } from './navbar/navbar.component';
+import { FooterComponent } from './footer/footer.component';
+
 
 
 
@@ -26,9 +35,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppComponent,
     UserLoginComponent,
     UserRegisterComponent,
+
     MovieListComponent,
     AddMovieComponent,
     MovieItemComponent,
+
     NavbarComponent,
     FooterComponent
 
@@ -39,11 +50,18 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HttpClientModule,
     FormsModule,
     NgxPaginationModule,
+
     NgbModule
    
    
   ],
   providers: [MovieService, {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi:true}, Guard, AdminGuard],
+
+   
+   
+  ],
+  providers: [ ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

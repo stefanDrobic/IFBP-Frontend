@@ -24,6 +24,9 @@
 .btn {        
     font-size: 15px;
     font-weight: bold;
+
+    width: 100%;
+
 }
 html,body{
 background-image: url('http://www.pptgrounds.com/wp-content/uploads/2013/11/Label-with-Movie-Film-PPT-Backgrounds.jpg');
@@ -36,4 +39,8 @@ font-family: 'Numans', sans-serif;
 
 .button{
     margin-right: 1em;
+
 }
+
+}
+
