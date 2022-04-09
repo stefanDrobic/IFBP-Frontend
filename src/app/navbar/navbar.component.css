@@ -1,0 +1,13 @@
+
+.navbar{
+    border-style: ridge;
+    border-radius: 25px;
+    border-width: thin;
+    background-color: rgba(0,0,0, 0.3);
+}
+
+.logoutButton{
+    border-radius: 25px;
+    background-color: rgba(0,0,0, 0.3);
+    color: white;
+}
