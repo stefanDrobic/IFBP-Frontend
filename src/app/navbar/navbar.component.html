@@ -2,10 +2,14 @@
     <div class="row mt-3">
         <div>
             <h3 class="float-md-start mb-0">IFBP Movie site</h3>
-            <nav class=" navbar nav-masthead justify-content-center float-md-end">
-                <span><a style="color: white" class="nav-link" routerLink="/login" routerLinkActive="active">Login</a></span>
-                <span><a style="color: white" class="nav-link" routerLink="/register" routerLinkActive="active">Register</a></span>
-                <a style="color: white" class="nav-link active" aria-current="page" href="login/#bottom">Contact</a>
+            <nav class="navbar nav-masthead justify-content-center float-md-end">
+                <span><a style="color: white" class="nav-link" routerLink="/event/list"
+                        routerLinkActive="active">News</a></span>
+                <span><a style="color: white" class="nav-link" routerLink="/register"
+                        routerLinkActive="active">Register</a></span>
+                <span><a style="color: white" class="nav-link" routerLink="/login"
+                        routerLinkActive="active">Login</a></span>
+                <a style="color: white" class="nav-link active" aria-current="page" href="#bottom">Contact</a>
                 <button *ngIf = "check.isUser()" class="logoutButton" (click)= "check.logoutUser()" >User logout</button>
                 <button  *ngIf="check.isAdmin()" type="button" class="logoutButton" (click)= "check.logoutAdmin()"> Admin logout</button>
             </nav>

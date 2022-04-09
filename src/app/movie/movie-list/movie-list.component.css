@@ -1,0 +1,48 @@
+html,body{
+    background-image: url('https://wallpaperaccess.com/full/2314950.jpg');
+    background-size: cover, contain;
+    background-repeat: no-repeat;
+    height: 100%;
+    font-family: 'Numans', sans-serif;
+ }
+
+ .news{
+     text-align:left;
+     background: transparent;
+     border-style: ridge;
+     border-radius: 25px;
+ }
+
+
+ .search{
+     text-align: right; 
+ }
+ .button{
+     margin-right: 1em;
+ }
+
+ .input{
+     font-style: italic;
+     border-radius: 8px;
+     background-color: rgba(0,0,0, 0.5);
+     color:white;
+
+ }
+ ::placeholder { 
+    color: rgb(184, 183, 183)
+ }
+
+
+.block-title {
+    background-image: url('https://image.shutterstock.com/image-vector/blue-purple-dreamy-vibrant-gradient-260nw-1246525090.jpg');
+    text-align: center;
+    border-bottom: ridge;
+    border-radius: 25px;
+    
+}
+ .buttonAdd{
+     vertical-align: bottom;
+     border-radius: 25px;
+     font-size: 20px;
+ }
+
