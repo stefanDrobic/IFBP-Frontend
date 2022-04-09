@@ -1,0 +1,57 @@
+
+<!doctype html>
+<html lang="en" class="h-100">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.84.0">
+    <title>Cover Template · Bootstrap v5.0</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/cover/">
+
+    <!-- Custom styles for this template -->
+</head>
+
+<body class="d-flex h-100 text-center text-white bg-dark">
+
+
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+       <app-navbar></app-navbar>
+
+        <div class="container-md">
+        <div class="row mt-3">
+            <div class="search">
+                <div>
+                    Search: <input class="input" type="text" placeholder="Search movies" name="searchBox"
+                        [(ngModel)]="searchTerm" (keyup)="search()" />
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-4 ">
+                <h2 class="block-title mb-3">Movie news</h2>
+            </div>
+            <div class="col mt-2">
+                    <button class="buttonAdd float-end btn-primary  " *ngIf="check.isAdmin()" routerLink="/event/add">
+                        + Add movie</button>
+            </div>
+
+        </div>
+
+        <div class="news row ">
+            <app-movie-item class="col-xl-2 col-lg-3 col-md-3 col-sm-4" [movie]="movie"
+                *ngFor="let movie of movies$ | async | paginate: { itemsPerPage: 12, currentPage: p } ">
+            </app-movie-item>
+        </div>
+        <pagination-controls (pageChange)="p=$event"></pagination-controls>
+        </div>
+
+
+        <app-footer></app-footer>
+    </div>
+</body>
+<div id="bottom"></div>
+</html>
