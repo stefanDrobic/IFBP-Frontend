@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en" class="h-100">
 
@@ -10,6 +9,8 @@
     <meta name="generator" content="Hugo 0.84.0">
     <title>Cover Template · Bootstrap v5.0</title>
 
+
+
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/cover/">
 
     <!-- Custom styles for this template -->
@@ -19,34 +20,80 @@
 
 
     <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-       <app-navbar></app-navbar>
-
-        <div class="container-md">
-        <div class="row mt-3">
-            <div class="search">
+        
+        <header class="md-auto">
+            <div class="row mt-3">
                 <div>
-                    Search: <input class="input" type="text" placeholder="Search movies" name="searchBox"
-                        [(ngModel)]="searchTerm" (keyup)="search()" />
+                    <h3 class="float-md-start mb-0">IFBP Movie site</h3>
+                    <nav class="navbar nav-masthead justify-content-center float-md-end navbar-expand-lg navbar-dark">
+                        <span> <a style="color: white" class="nav-link"  routerLink="/home" >Home</a></span>
+                        <span> <a style="color: white" class="nav-link"  routerLink="/forum" >Forum</a></span>
+                        <span><a style="color: white" class="nav-link" routerLink="/event/list"
+                                routerLinkActive="active">Movies</a></span>
+        
+                            <div class="nav-link" >
+                                <ul class="navbar-nav">
+                                    <li class="nav-item dropdown">
+                                        <a class="gen  dropdown-toggle"  role="button"
+                                            data-bs-toggle="dropdown" aria-expanded="false">
+                                            Genres
+                                        </a>
+                                        <ul class="dropdown-menu dropdown-menu-dark"
+                                            aria-labelledby="navbarDarkDropdownMenuLink">
+                                            <li><a class="dropdown-item" href="#" >All</a></li>
+                                            <li class="dropdown-item" (click)="fun('Action')"> Action</li>
+                                            <li class="dropdown-item" (click)="fun('Adventure')">Adventure</li>
+                                            <li class="dropdown-item" (click)="fun('Animation')">Animation</li>
+                                            <li class="dropdown-item" (click)="fun('Drama')">Drama</li>
+                                            <li class="dropdown-item" (click)="fun('Comedy')">Comedy</li>
+                                            <li class="dropdown-item" (click)="fun('Crime')">Crime</li>
+                                            <li class="dropdown-item" (click)="fun('Mistery')">Mistery</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+        
+                       
+                        <span><a style="color: white" class="nav-link" routerLink="/register"
+                                routerLinkActive="active">Register</a></span>
+                        <span><a style="color: white" class="nav-link" routerLink="/login"
+                                routerLinkActive="active">Login</a></span>
+                        <a style="color: white" class="nav-link active" aria-current="page" href="#bottom">About Us</a>
+                        <button *ngIf="check.isUser()" class="logoutButton" (click)="check.logoutUser()">User logout</button>
+                        <button *ngIf="check.isAdmin()" type="button" class="logoutButton" (click)="check.logoutAdmin()"> Admin
+                            logout</button>
+                    </nav>
                 </div>
             </div>
-        </div>
-        <div class="row mt-5">
-            <div class="col-4 ">
-                <h2 class="block-title mb-3">Movie news</h2>
+        </header>
+
+        <div class="container-md">
+            <div class="row mt-3">
+                <div class="search">
+                    <div>
+                        Search: <input class="input" type="text" placeholder="Search movies" name="searchBox"
+                            [(ngModel)]="searchTerm" (keyup)="search()" />
+                    </div>
+                </div>
             </div>
-            <div class="col mt-2">
-                    <button class="buttonAdd float-end btn-primary  " *ngIf="check.isAdmin()" routerLink="/event/add">
+            <div class="row mt-5">
+                <div class="col-4 ">
+                    <h2 class="block-title mb-3">Movies</h2>
+                </div>
+                <div class="col mt-2">
+                    <button class="buttonAdd float-end btn-primary  " *ngIf="check.isAdmin() || check.isUser()"
+                        routerLink="/event/add">
                         + Add movie</button>
+                </div>
+
             </div>
 
-        </div>
-
-        <div class="news row ">
-            <app-movie-item class="col-xl-2 col-lg-3 col-md-3 col-sm-4" [movie]="movie"
-                *ngFor="let movie of movies$ | async | paginate: { itemsPerPage: 12, currentPage: p } ">
-            </app-movie-item>
-        </div>
-        <pagination-controls (pageChange)="p=$event"></pagination-controls>
+            <div class="news row ">
+                <app-movie-item class="col-xl-2 col-lg-3 col-md-3 col-sm-4" [movie]="movie"
+                    *ngFor="let movie of movies$ | async | paginate: { itemsPerPage: 18, currentPage: p } ">
+                </app-movie-item>
+            </div>
+            <pagination-controls (pageChange)="p=$event"></pagination-controls>
         </div>
 
 
@@ -54,4 +101,5 @@
     </div>
 </body>
 <div id="bottom"></div>
+
 </html>

@@ -1,0 +1,58 @@
+.imgs {
+    border-radius: 50%;
+
+}
+
+
+.t {
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 25px;
+    border-style: outset;
+    border-bottom-width: 1px;
+    border-top-width: 1px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-color: white;
+    text-align: left;
+    padding-top: 3px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    height: 65px;
+}
+
+.name {
+    text-align: left;
+}
+
+.date {
+    text-align: right;
+    color: rgb(143, 168, 168);
+}
+
+.username {
+    color: cornsilk;
+
+
+
+}
+
+.h {
+
+    max-height: 65px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.ta{
+    background-color: rgba(0, 0, 0, 0.4);
+    border-color: white;
+    border-radius: 25px;
+    color:white;
+    padding: 7px;
+   
+    
+}

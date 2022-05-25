@@ -1,0 +1,9 @@
+<div class="card" style="width: 16rem;">
+    <img height="155" [src]="homeItem.imageUrl" class="card-img-top">
+    <div class="card-body">
+        <h5 style="color: black" class="card-title">{{homeItem.title}}</h5>
+        <p class="card-text" style="color: black">{{homeItem.description}}</p>
+        <button class="btn btn-primary"  routerLink="/home/{{homeItem.title}}">See more</button>
+
+    </div>
+</div>

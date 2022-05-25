@@ -13,7 +13,7 @@ export class Guard implements CanActivate {
             return true;
         }
         this.router.navigate(['login'])
-        alert('you must login to have permission to access')
+        alert('you must login as user to have permission to access')
     }
 
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CheckClass } from 'src/app/model/CheckClass';
 import { Movie } from 'src/app/model/movie';
 import { MovieService } from 'src/app/services/movie.service';
 
@@ -12,11 +13,11 @@ import { MovieService } from 'src/app/services/movie.service';
 })
 export class AddMovieComponent implements OnInit {
 
-  ganres = ["action", "basdasd", "csad", "dasd", "easdasdasd", "f", "g"];
+  ganres = ["Action", "Adventure", "Animation", "Drama", "Comedy", "Crime", "Mistery"];
   ganres2 = [];
   mess;
   date;
-  time = {hour: 13, minute: 30};
+  ytKey;
   
 
   constructor(private movieService: MovieService, private router: Router) { }
@@ -29,16 +30,18 @@ export class AddMovieComponent implements OnInit {
 
   createEvent(eventForm) {
     const movie: Movie = eventForm.value.event;
-
     if (movie.imageUrl === movie.ytUrl) {
       this.mess = "Image Url and trailer Url must not be the same.";
     }
 
     else {
       movie.ganres = this.ganres2;
-      if (localStorage.getItem('tokenAdmin')) {
+      this.ytKey = "https://www.youtube.com/embed/" + movie.ytUrl;
+      movie.ytUrl = this.ytKey;
+      console.log("ADADSSAS ", movie.ytUrl);
+      if (localStorage.getItem('token')) {
         this.movieService.addMovie(movie).subscribe((res) => {
-          alert("event created")
+          alert("event created");
           this.router.navigate(['/event/list']);
         })
       }
@@ -60,10 +63,6 @@ export class AddMovieComponent implements OnInit {
     }
   }
 
-  isAdmin(): boolean {
-    if (localStorage.getItem('tokenAdmin'))
-      return true;
-    return false;
-  }
+
 
 }

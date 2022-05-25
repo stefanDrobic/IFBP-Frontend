@@ -1,0 +1,42 @@
+<div class="container" *ngIf="check.isUser()">
+    <div class="form-group">
+        <form (ngSubmit)="createEvent(eventForm)" #eventForm="ngForm">
+            <div ngModelGroup="event">
+            <div class="row mt-2">
+                <div class="col-2">
+
+                </div>
+
+                <div class="col-7 ">
+                    <div class="row">
+                        <div class="date col">
+                            <small>{{str}}</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row ">
+                <div class="h col-2">
+                    <img class="imgs"
+                        src="https://toppng.com/uploads/preview/user-account-management-logo-user-icon-11562867145a56rus2zwu.png"
+                        style="height: 60%; width: 30%; ">
+                    <br>
+                    <small class="username" >{{username}}</small>
+                </div>
+
+                <div class=" col-7">
+                    <textarea class="comm form-control" placeholder="Add Comment" ngModel
+                    #description="ngModel" name="description"  
+                    required rows="2"></textarea>
+                    
+                </div>
+               
+                <div class="forButton mt-2 mb-2">
+                    <button type="submit" class="btn btn-primary btn-block"
+                    [disabled]="eventForm.invalid " (click)="reload()">Add comment</button></div>
+            </div>
+            </div>
+        </form>
+    </div>
+</div>

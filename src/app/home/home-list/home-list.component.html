@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en" class="h-100">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.84.0">
+    <title>Cover Template · Bootstrap v5.0</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/cover/">
+
+</head>
+
+<body class="d-flex h-100 text-center text-white bg-dark">
+
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <app-navbar></app-navbar>
+        <div class="welcome mt-5">
+            <div class="row mt-4">
+                <div class="col-lg-6 mx-auto ">
+                    <h2>Welcome to Movie site</h2>
+                    <h5>Welcome to our Movie Database. Here you will find a current list of our available movies, posted
+                        by registred users, you can search movies and see details. Below you can see interesting things
+                        from the world of
+                        cinematography and more. </h5>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container-sm">
+            <main class="px-3">
+                <div class="welcome col-lg-4 mx-auto mt-3">
+                    <h3>Cinematography Topics</h3>
+                </div>
+                <div class="col mt-2 ">
+                    <button class="btn float-end btn-primary" *ngIf="check.isAdmin() "
+                        routerLink="/home/add">
+                        + Add Topic</button>
+                </div>
+            </main>
+        </div>
+
+       
+       
+
+        <div class="container">
+            <div class="row mt-5 md-auto ">
+                <app-home-item class="col-lg-4 col-xl-3  col-sm-6 mb-3" [homeItem]="homeItem"
+                    *ngFor="let homeItem of homeitems$ | async | paginate: { itemsPerPage: 8, currentPage: p } ">
+                </app-home-item>
+            </div>
+            <pagination-controls (pageChange)="p=$event"></pagination-controls>
+            <br>
+            <app-footer></app-footer>
+        </div>
+    </div>
+
+</body>
+<div id="bottom"></div>
+
+</html>
