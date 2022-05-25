@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en" class="h-100">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.84.0">
+    <title>Cover Template · Bootstrap v5.0</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/cover/">
+
+    <!-- Custom styles for this template -->
+</head>
+
+<body class="d-flex h-100 text-center text-white bg-dark">
+
+
+    <div class="container d-flex w-100 h-100 mx-auto flex-column" *ngIf="movie != undefined">
+       <app-navbar></app-navbar>
+        <div class="welcome mt-5">
+            <div class="row mt-5">
+                <div class="text col-lg-6 col-md-6 col-sm-6  mb-5">
+                    <h2>{{movie.name}}</h2>
+                    <h5 class="text2 mt-3">Description: {{movie.description}} </h5>
+
+
+                    <div class="text2 row mt-3" style=" width: 100%">
+                        <div class="col-md-6 ">
+                            <h5>Rating: ⭐ {{movie.rating}}</h5>
+                        </div>
+                        <div class="c col-md-6  ">
+                            <h5>Time: {{movie.time}}</h5>
+                        </div>
+                    </div>
+
+                    <div class="linesize row  mt-4" style=" width: 100%" >
+                        <h5 class="col-auto">Ganre: {{movie.ganres}}</h5>
+                    </div>
+                    <div class="linesize row  mt-3" style=" width: 100%">
+                        <h5 class="col-auto">Actors: {{movie.actors}}</h5>
+                    </div>
+                    
+                    <div class="linesize row float-start" *ngIf="check.isUser()">
+                        <h5 class="col-auto">Rate this movie: ({{rating3}}) <ngx-star-rating  
+                        class="star" [(ngModel)]="rating3"   
+                         ></ngx-star-rating> </h5>
+                    </div>
+                    <div class="linesize row float-start" *ngIf="movie.isRated">
+                        <h5 class="rat">You have rated this movie with rating {{rating3}}</h5></div>
+        
+
+
+                </div>
+
+                <div class="col-lg-6 col-md-6 col-sm-6 mb-5">
+                    <img class="imgs"
+                         [src]="movie.imageUrl"
+                        style="height: 100%; width: 50%; ">
+                </div>
+            </div>
+
+        </div>
+        
+        <div class="container">
+            <div class="trailer">
+                <div class="welcome col-lg-4 mt-3">
+                    <h3>Movie Trailer ▶ </h3>
+
+                </div>
+
+                <div class="row mt-3" >
+                    <iframe width="420" height="400" [src]="safeSrc">
+                    </iframe>
+                </div>
+                <br>
+                <hr>
+                <div class="welcome col-lg-3 mt-3 mb-5">
+                    <h3>Comments</h3>
+        
+                </div>
+                <app-add-comment></app-add-comment>
+                <app-comment-list></app-comment-list>
+                <br>
+                <hr>
+                <app-footer></app-footer>
+            </div>
+        </div>
+       
+    </div>
+
+</body>
+<div id="bottom"></div>
+
+</html>

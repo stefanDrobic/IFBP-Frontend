@@ -72,14 +72,21 @@
                                 <div class="error" *ngIf="year.hasError('max')">
                                     movie year must be less then current year.
                                 </div>
-
-                                <div class="ok mt-3">
+                               
+                                <div class="ok mt-2">
+                                    <small style="color: darkgrey;">please use format '01:55h' for time</small>
                                     <input type="text"  class="form-control" ngModel
-                                        #eventName="ngModel" name="time" placeholder="Movie time" />
+                                        #time="ngModel" name="time" placeholder="Movie time" />
+                                    
+                                </div>
+
+				                <div class="ok mt-2">
+                                    <small style="color: darkgrey;">please use format '7.2/10' for rating</small>
+                                    <input type="text"  class="form-control" ngModel
+                                        #rating="ngModel" name="rating" placeholder="Movie rating" />
                                 </div>
 
                                
-                                
 
                                 <div class="ok input-group mt-3">
                                     <span class="input-group-text">Descripton</span>
@@ -91,8 +98,16 @@
                                     description is required
                                 </div>
 
+                                <div class="ok input-group mt-3">
+                                    <span class="input-group-text">Actors</span>
+                                    <textarea class="form-control" aria-label="With textarea" ngModel
+                                        #description="ngModel" name="actors" placeholder="Movie actors"
+                                        ></textarea>
+                                </div>
 
-                                <div class="input-group mt-3">
+                        
+                                <div class="mt-2">
+                                    <small style="color: darkgrey;">please use Portrait/vertical format for picture url</small>
                                     <input type="text" class="form-control" ngModel name="imageUrl"
                                         placeholder="Movie Image URL" #imageUrl="ngModel"
                                         pattern="^http(s?)\://[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(/\S*)?$" required>
@@ -111,22 +126,11 @@
                                 <div class="input-group mt-3">
                                     <input type="text" class="form-control" ngModel name="ytUrl"
                                         placeholder="Movie trailer URL" #ytUrl="ngModel"
-                                        pattern="^((?:https?:)?\/\/)?((?:www|m)\.)?((?:youtube(-nocookie)?\.com|youtu.be))(\/(?:[\w\-]+\?v=|embed\/|v\/)?)([\w\-]+)(\S+)?$"
-                                        required>
+                                       
+                                        >
                                 </div>
 
-                                <div class="error" *ngIf="ytUrl.touched && ytUrl.invalid">
-                                    <div *ngIf="ytUrl.errors.required">
-                                        trailer URL is required
-                                    </div>
-                                    <div *ngIf="ytUrl.errors.pattern">
-                                        trailer does not seem to have a valid URL
-                                    </div>
-
-                                </div>
-
-
-                                <h6 class="a mt-3">Chosse ganre of genres of Movie:</h6>
+                                <h6 class="a mt-3">Chosse ganres of Movie:</h6>
                                 <div class="aa overflow-auto" style="height: 100px; width: 200px;">
                                     <div class="a form-check" *ngFor="let g of ganres">
                                         <input class="form-check-input" type="checkbox" id="flexCheckDefault"

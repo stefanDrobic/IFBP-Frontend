@@ -1,0 +1,42 @@
+
+@import url('https://fonts.googleapis.com/css?family=Numans');
+
+html,body{
+background-image: url('https://wallpaperaccess.com/full/2314950.jpg');
+background-size: cover, contain;
+background-repeat: no-repeat;
+height: 100%;
+font-family: 'Numans', sans-serif;
+}
+
+.image{
+    background-image: url('https://t3.ftcdn.net/jpg/02/24/44/70/360_F_224447009_zSRwNZa8kd8pywa6YSaVmMecWayHF1j5.jpg');
+}
+.btn{
+    border-radius: 15px;
+}
+
+
+.text{
+    font-family: "Mallory",Verdana,Arial,Helvetica,sans-serif;
+    font-weight: normal;
+    margin-left: 1em;
+    margin-right: 1em;
+    text-align: left;
+    
+    
+}
+
+
+.news{
+    margin-top: 10px;
+    background-color: rgba(0,0,0, 0.7);
+}
+
+.welcome{
+    border-radius: 10em;
+    margin-top: 10px;
+    background-color: rgba(0,0,0, 0.3);
+    
+}
+

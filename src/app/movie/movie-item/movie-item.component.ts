@@ -15,7 +15,7 @@ export class MovieItemComponent  {
 
   @Input() public movie: Movie; 
 
-  constructor(private movieService: MovieService, private router: Router) { }
+  constructor() { }
 
 
 

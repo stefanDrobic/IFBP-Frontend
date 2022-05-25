@@ -20,6 +20,7 @@ export class MovieListComponent implements OnInit {
 
   public movies$: Observable<Movie[]>;
   public searchTerm: string = '';
+  public movies2$: Movie[];
 
   p: number = 1;
 
@@ -27,7 +28,6 @@ export class MovieListComponent implements OnInit {
   private reloadEventList: Subject<void> = new Subject(); 
 
   constructor(private eventService: MovieService, public check:CheckClass) { }
-
   ngOnInit() {
 
     this.movies$ = this.searchSubject
@@ -38,10 +38,15 @@ export class MovieListComponent implements OnInit {
       .switchMap((query) => this.eventService.getMovies(this.searchTerm));
 
 
+
   }
 
   search() {
     this.searchSubject.next(this.searchTerm);
+  }
+
+  fun(name:string){
+    this.movies$ = this.eventService.getMovieByGenre(name);
   }
 
 

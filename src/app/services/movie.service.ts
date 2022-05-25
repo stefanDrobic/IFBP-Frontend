@@ -12,6 +12,8 @@ export class MovieService {
 
   constructor(private httpClient: HttpClient) { }
 
+  //host = "http://localhost:8080/ifbp/movie/";
+ 
   host = "http://localhost:3000/";
 
 
@@ -20,14 +22,21 @@ export class MovieService {
       params: { q: query }
     })
   }
+  
   getMovie(name:string): Observable<Movie> {
     return this.httpClient.get<Movie>(this.host + 'api/events/' + name);
+  }
+
+  getMovieByGenre(name:string): Observable<Movie[]> {
+    return this.httpClient.get<Movie[]>(this.host + 'api/events/genres/' + name);
   }
 
 
   addMovie(event: Movie): Observable<Movie> {
     return this.httpClient.post<Movie>(this.host + "api/events", event)
   }
+
+
 
 
 }

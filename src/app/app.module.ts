@@ -18,6 +18,19 @@ import { MovieItemComponent } from './movie/movie-item/movie-item.component';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MovieDetailsComponent } from './movie/movie-details/movie-details.component';
+import { CommentItemComponent } from './comment/comment-item/comment-item.component';
+import { CommentListComponent } from './comment/comment-list/comment-list.component';
+import { AddCommentComponent } from './comment/add-comment/add-comment.component';
+import { HomeListComponent } from './home/home-list/home-list.component';
+import { HomeItemComponent } from './home/home-item/home-item.component';
+import { AddHomeItemComponent } from './home/add-home-item/add-home-item.component';
+import { HomeDetailsComponent } from './home/home-details/home-details.component';
+import { ForumListComponent } from './forum/forum-list/forum-list.component';
+import { AddForumComponent } from './forum/add-forum/add-forum.component';
+import { ForumDetailsComponent } from './forum/forum-details/forum-details.component';
+import { ForumItemComponent } from './forum/forum-item/forum-item.component';
+import { NgxStarRatingModule } from 'ngx-star-rating';
 
 
 
@@ -30,7 +43,20 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AddMovieComponent,
     MovieItemComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    MovieDetailsComponent,
+    CommentItemComponent,
+    CommentListComponent,
+    AddCommentComponent,
+    HomeListComponent,
+    HomeItemComponent,
+    AddHomeItemComponent,
+    HomeDetailsComponent,
+    ForumListComponent,
+    AddForumComponent,
+    ForumDetailsComponent,
+    ForumItemComponent,
+   
 
   ],
   imports: [
@@ -39,7 +65,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     HttpClientModule,
     FormsModule,
     NgxPaginationModule,
-    NgbModule
+    NgbModule,
+    NgxStarRatingModule
    
    
   ],

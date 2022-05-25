@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { CheckClass } from 'src/app/model/CheckClass';
+import { User } from 'src/app/model/user';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -15,6 +17,7 @@ export class UserLoginComponent implements OnInit {
   public username: string = '';
   public password: string = '';
   msg = "";
+  private currentUserSubject = new BehaviorSubject<any>(null);
 
   ngOnInit(): void {
   }
@@ -33,6 +36,8 @@ export class UserLoginComponent implements OnInit {
       this.userService.login(this.username, this.password).subscribe(resp => {
         localStorage.setItem("token", resp.token)
         this.router.navigate(['/event/list']);
+        sessionStorage.setItem("username", this.username);
+
       },
         error => { console.log("login error"); this.msg = "Plase enter valid username or password"; });
     }
@@ -40,6 +45,11 @@ export class UserLoginComponent implements OnInit {
       this.msg = "You are already logged in."
     
   }
+
+  getCurrentUser(): string {
+    return this.currentUserSubject.getValue();
+  }
+
 
 
 

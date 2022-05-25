@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en" class="h-100">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.84.0">
+    <title>Cover Template · Bootstrap v5.0</title>
+
+
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/cover/">
+
+    <!-- Custom styles for this template -->
+</head>
+
+<body class="d-flex h-100 text-center text-white bg-dark">
+
+
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        
+        <app-navbar></app-navbar>
+
+        <div class="container-md">
+            <div class="row mt-3">
+                <div class="search">
+                    <div>
+                        Search: <input class="input" type="text" placeholder="Search themes" name="searchBox"
+                            [(ngModel)]="searchTerm" (keyup)="search()" />
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-4 ">
+                    <h2 class="block-title mb-3">Forum Themes</h2>
+                </div>
+                <div class="col mt-2">
+                    <button class="buttonAdd float-end   " 
+                        routerLink="/forum/add" *ngIf="check.isAdmin() || check.isUser()">
+                        + Add Forum</button>
+                </div>
+
+            </div>
+
+            <div class="news row ">
+                <app-forum-item class="r row" [forumTheme]="theme"
+                    *ngFor="let theme of themes$ | async | paginate: { itemsPerPage: 10, currentPage: p } ">
+                </app-forum-item>
+            </div>
+            <pagination-controls (pageChange)="p=$event"></pagination-controls>
+        </div>
+        <br>
+        <br>
+
+        <app-footer></app-footer>
+    </div>
+</body>
+<div id="bottom"></div>
+
+</html>
